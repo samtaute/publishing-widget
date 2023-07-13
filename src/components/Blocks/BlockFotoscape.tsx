@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { BlockFotoscapeConfig, FotoscapeItem } from "../../definition";
+import BlockItem from "../BlockItem";
 // import news from "../../dummy-data/softbox-payload";
 import { useContext } from "react";
 import SoftboxContext from "../../store/softbox-context";
@@ -18,8 +19,8 @@ const BlockFotoscape: React.FC<{ configs: BlockFotoscapeConfig }> = (props) => {
 
   return (
     <Fragment>
-      {contentItems.map((item: any) => {
-        return <div key={Math.random()}>{item.title}</div>;
+      {contentItems.map((item: FotoscapeItem) => {
+        return <BlockItem key={Math.random()} data={item}></BlockItem>;
       })}
     </Fragment>
   );

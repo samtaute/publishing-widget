@@ -20,7 +20,7 @@ export const SoftboxContextProvider: React.FC<{
 
   const fetchCategory = useCallback(async (category: string) => {
     const baseUrl =
-      "https://fotoscapes.com/wp/v1/daily?ckey=fb529d256155b9c6&sched=";
+      "https://fotoscapes.com/wp/v1/daily?ckey=fb529d256155b9c6&previewAspect=1:1&sched=";
     let itemList: FotoscapeItem[] = [];
     const requestUrl = baseUrl + category;
     try {
@@ -34,11 +34,10 @@ export const SoftboxContextProvider: React.FC<{
 
       for (let item of items) {
         let cleanItem: FotoscapeItem;
-
         cleanItem = {
           title: item.title.en,
           url: item.link,
-          imageUrl: item.previews[0],
+          imageUrl: item.previews[3] ?  item.previews[3]['link']: item.previews[0]['link'],
           description: item.summary.en,
         };
         itemList.push(cleanItem);

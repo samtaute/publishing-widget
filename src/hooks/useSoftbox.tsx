@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { FotoscapeItem } from "../../definition";
+import { FotoscapeItem } from "../definition";
 
 function useSoftbox() {
   const [contentLibrary, setContentLibrary] = useState({});
