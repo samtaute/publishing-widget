@@ -10,10 +10,11 @@ import SoftboxContext from "../../store/softbox-context";
 const BlockFotoscape: React.FC<{ configs: BlockFotoscapeConfig }> = (props) => {
   const ctx = useContext(SoftboxContext);
   const count = props.configs.settings.count;
+  const category = props.configs.settings.category!; 
   //   const category = props.configs.settings.category;
   let contentItems: FotoscapeItem[] = [];
-  if (ctx.content["news"]) {
-    contentItems = ctx.content["news"].slice(0, count); 
+  if (ctx.content[category]) {
+    contentItems = ctx.content[category].slice(0, count); 
     console.log(contentItems)
   }
 

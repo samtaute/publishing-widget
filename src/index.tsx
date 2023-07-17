@@ -3,11 +3,13 @@ import "./index.css";
 import App from "./App";
 import { SoftboxContextProvider } from "./store/softbox-context";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
-root.render(
-  <SoftboxContextProvider>
+const widgetDivs = document.querySelectorAll('.softbox-widget'); 
+
+widgetDivs.forEach(div =>{
+  const root = ReactDOM.createRoot(div);
+  root.render(
+    <SoftboxContextProvider>
     <App />
   </SoftboxContextProvider>
-);
+  )
+})

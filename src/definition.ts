@@ -4,7 +4,9 @@ export interface Block{
 
 export type ValidBlockConfig = 
 | BlockFotoscapeConfig
-
+| BlockAdConfig
+| BlockRevealMemesConfig
+| BlockOutbrainConfig
 export type ItemList = FotoscapeItem[];
 
 
@@ -46,11 +48,14 @@ export type BlockSettingLayout =
   | "trending-carousel"
   | "instant-play-games";
 
+  export interface PageConfig {
+    categories: string[]; 
+  }
 export interface BlockFotoscapeConfig {
   blockType: 'fotoscape_block';
   settings: {
     count: number;
-    category: string; //differs from definition.ts
+    category?: string; //differs from definition.ts
     layout: string;
     cta?: boolean;
     title?: "string";
